@@ -1,0 +1,83 @@
+/***************************************************************************************************************/
+@AUTHOR: FRANCESCO LASALVIA
+/***************************************************************************************************************/
+
+### Relazione con le Catene di Markov
+
+Il codice presentato utilizza il concetto di catene di Markov per simulare l'evoluzione di un'epidemia all'interno di una popolazione.
+Le catene di Markov sono un tipo di processo stocastico in cui la probabilità di transizione da uno stato all'altro dipende esclusivamente dallo stato attuale e non dalla sequenza di eventi precedenti.
+Questo concetto è fondamentale per modellare sistemi in cui le decisioni future sono influenzate solo dallo stato presente.
+
+#### **Concetti Fondamentali delle Catene di Markov**
+
+1. **Stati e Transizioni**
+   - **Stati**: In questo contesto, gli stati rappresentano le condizioni della popolazione: `sani`, `infetti`, `guariti`, e `deceduti`.
+   - **Transizioni**: Le probabilità di transizione definiscono la probabilità di passare da uno stato all'altro in un dato intervallo di tempo.
+   Per esempio, una probabilità di transizione di 20% per diventare infetto implica che ogni persona sana ha il 20% di probabilità di diventare infetta
+   nel prossimo intervallo di tempo.
+
+2. **Proprietà di Markov**
+   - **Memoria senza memoria (Markovianità)**: La probabilità di transizione da uno stato a un altro dipende solo dallo stato corrente e non dalla sequenza di stati precedenti.
+    Questo è noto come proprietà di Markov.
+    Nel codice, la probabilità di un individuo di diventare infetto, guarire, o decedere non dipende dalla sua storia di transizioni passate ma solo dal suo stato attuale.
+
+#### **Implementazione delle Catene di Markov nel Codice**
+
+1. **Definizione degli Stati e delle Probabilità di Transizione**
+
+   Il codice definisce le probabilità di transizione tra i vari stati della popolazione:
+   - `probTransizioneInfetto`: Probabilità che una persona sana diventi infetta.
+   - `probTransizioneGuarito`: Probabilità che una persona infetta guarisca.
+   - `probTransizioneDeceduto`: Probabilità che una persona infetta deceda.
+   - `probTransizioneReInfezione`: Probabilità che una persona guarita possa essere reinfettata.
+
+   Queste probabilità sono utilizzate per aggiornare lo stato della popolazione ad ogni passo temporale della simulazione.
+
+2. **Aggiornamento degli Stati nella Simulazione**
+
+   Ad ogni giorno della simulazione, il codice calcola il numero di individui che transizionano tra gli stati in base alle probabilità di transizione. Ecco come viene gestito il processo:
+
+   - **Nuovi Infetti**: Calcolati come una frazione dei sani basata su `probTransizioneInfetto`. Per esempio, se ci sono 1000 sani e la probabilità di diventare infetti è 20%, allora 200 individui diventeranno infetti.
+   - **Nuovi Guariti**: Calcolati come una frazione degli infetti basata su `probTransizioneGuarito`. Se ci sono 200 infetti e la probabilità di guarigione è 80%, allora 160 individui guariranno.
+   - **Nuovi Deceduti**: Calcolati come una frazione degli infetti basata su `probTransizioneDeceduto`. Se ci sono 200 infetti e la probabilità di decesso è 3%, allora 6 individui decederanno.
+   - **Reinfezione**: Alcuni guariti possono essere reinfettati in base a `probTransizioneReInfezione`.
+
+   La popolazione viene aggiornata sottraendo i nuovi infetti dai sani, aggiungendo i nuovi infetti, guariti e deceduti agli stati appropriati.
+
+3. **Condizioni di Controllo**
+
+   - **Eccedenza della Popolazione**: Il codice include un controllo per assicurarsi che la somma dei vari stati non superi la popolazione totale,
+   correggendo eventuali eccedenze sottraendo gli infetti se necessario.
+
+#### **Esempio di Applicazione delle Catene di Markov**
+
+Consideriamo un esempio con i seguenti parametri:
+- **Popolazione Sana Iniziale**: 1000
+- **Probabilità di Transizione**:
+  - Infetto: 20%
+  - Guarito: 80%
+  - Deceduto: 3%
+  - Reinfezione: 15%
+
+**Giorno 0**:
+- Popolazione: `Sani = 1000`, `Infetti = 0`, `Guariti = 0`, `Deceduti = 0`.
+
+**Giorno 1**:
+- Nuovi Infetti = `1000 * 0.2 = 200`
+- Nuovi Guariti = `0 * 0.8 = 0`
+- Nuovi Deceduti = `0 * 0.03 = 0`
+- Popolazione: `Sani = 800`, `Infetti = 200`, `Guariti = 0`, `Deceduti = 0`.
+
+**Giorno 2**:
+- Nuovi Infetti = `(800 * 0.2) + (0 * 0.15) = 160`
+- Nuovi Guariti = `200 * 0.8 = 160`
+- Nuovi Deceduti = `200 * 0.03 = 6`
+- Popolazione: `Sani = 640`, `Infetti = 200 + 160 - 160 = 200`, `Guariti = 160`, `Deceduti = 6`.
+
+Questa simulazione mostra come le probabilità di transizione, definite dalle catene di Markov, influenzano l'evoluzione della malattia nel tempo.
+
+#### **Conclusioni**
+
+Le catene di Markov forniscono un framework potente per modellare e simulare l'evoluzione di fenomeni stocastici come epidemie.
+Nel codice, il modello di Markov permette di prevedere come gli stati della popolazione cambiano nel tempo in base a probabilità di transizione ben definite.
+Questo approccio consente di ottenere una visione chiara e quantitativa dell'andamento dell'epidemia e dell'impatto delle probabilità di transizione sulla salute della popolazione.

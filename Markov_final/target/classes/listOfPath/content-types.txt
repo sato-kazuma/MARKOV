@@ -1,0 +1,13 @@
+eseguibili.text/html; charset=UTF-8
+application/json; charset=UTF-8
+application/xml; charset=UTF-8
+eseguibili.text/plain; charset=UTF-8
+application/x-www-form-urlencoded
+multipart/form-data
+eseguibili.text/csv; charset=UTF-8
+application/pdf
+image/jpeg
+image/png
+application/javascript
+application/zip
+application/octet-stream

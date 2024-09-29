@@ -1,0 +1,14 @@
+/home
+/products
+/services
+/contact/about-us
+/blog
+/portfolio
+/login/signup
+/faq/help
+/thisisapath
+/thisisntapat
+/catchmeifucanmrholmes
+/blog
+/http2/http1
+/MARKOV

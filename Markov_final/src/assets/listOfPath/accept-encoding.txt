@@ -1,0 +1,4 @@
+gzip, deflate
+br
+identity
+compress

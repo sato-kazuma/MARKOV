@@ -1,0 +1,6 @@
+Procedo ad analizzare i dati presi dalla Lista delle persone!
+*---------------------------------------------------------------------------------------------------------------*
+Tempo di attesa medio: 0.0 ms
+Tempo di servizio medio: 0.0 ms
+Sono stati serviti: 0 clienti
+*---------------------------------------------------------------------------------------------------------------*

@@ -1,0 +1,64 @@
+/***************************************************************************************************************/
+@AUTHOR: FRANCESCO LASALVIA
+/***************************************************************************************************************/
+
+### Descrizione del Codice: Simulazione di Coda con Catena di Markov
+
+**Classi e Variabili Principali**
+
+- **Variabili di Configurazione:**
+  - `int clientsInQueue`: Tiene traccia del numero di clienti in coda.
+  - `List<ClientData> clientDataList`: Contiene i dati dei clienti.
+  - `int totalWaitTime` e `double totalServiceTime`: Utilizzati per calcolare i tempi medi di attesa e servizio.
+  - `int forcingVar`, `int nextStateForced`, `int currentState`, `double[][] currentMatrix`: Gestiscono lo stato corrente e la matrice di transizione della catena di Markov.
+
+**Funzioni Principali**
+
+1. **`simulateQueueWithClientsAndServer(Session session)`**:
+   - **Descrizione**: Simula il processo di coda con i clienti e il server. Per ogni passo (`STEPS`),
+   aggiorna la matrice di transizione della catena di Markov e simula le richieste dei clienti.
+   - **Dettagli**:
+     - Genera una matrice di transizione.
+     - Simula l'arrivo e il servizio dei clienti.
+     - Registra i tempi di attesa e servizio.
+     - Stampa le informazioni sui clienti e aggiorna lo stato della catena di Markov.
+
+2. **`generateTransitionMatrix(int currentState)`**:
+   - **Descrizione**: Crea una matrice di transizione per la catena di Markov. Ogni riga è normalizzata per garantire che la somma delle probabilità sia uguale a 1.
+   - **Dettagli**:
+     - Genera probabilità casuali e normalizza ciascuna riga della matrice.
+     - Verifica che la somma di ogni riga sia approssimativamente 1.
+
+3. **`printMatrix(double[][] matrix)`**:
+   - **Descrizione**: Stampa la matrice di transizione sul terminale.
+
+4. **`updatingState(double[][] matrix, int forcingVar)`**:
+   - **Descrizione**: Aggiorna lo stato della catena di Markov. Ogni 5 iterazioni, forzando un cambio di stato se `forcingVar` è pari.
+   - **Dettagli**:
+     - Cambia stato in base alla matrice di transizione o forzando un cambio di stato.
+
+5. **`analyzeData(List<ClientData> clientDataList)`**:
+   - **Descrizione**: Analizza i dati raccolti sui tempi di attesa e servizio dei clienti.
+   - **Dettagli**:
+     - Calcola i tempi medi e crea istogrammi dei tempi di attesa e servizio.
+
+6. **`serverPoolAndInitialize()`**:
+   - **Descrizione**: Configura e avvia il server.
+
+**Metodi di Supporto**
+
+- **`stampeAggiuntive(long waitTime, long serviceTime)`**: Stampa informazioni aggiuntive sui tempi di attesa e servizio di ciascun cliente.
+- **`forceState(int state)`**: Forza il cambio di stato generando un nuovo stato casuale.
+- **`nextState(int currentState, double[] probabilities)`**: Determina il prossimo stato basato sulle probabilità nella matrice di transizione.
+- **`WaitAverageTime()`** e **`WaitServiceTime()`**: Calcolano e stampano i tempi medi di attesa e servizio rispettivamente.
+
+**Esecuzione Principale**
+
+Nel metodo `main`, il server e il client vengono avviati, viene creata una sessione, e viene eseguita la simulazione della coda.
+Al termine della simulazione, i dati vengono analizzati e si eseguono operazioni finali come la compressione dei file e il caricamento su Google Drive.
+
+**Conclusione**
+
+Questo codice rappresenta una simulazione complessa che integra la teoria delle catene di Markov con una simulazione di coda client-server.
+Utilizza una matrice di transizione per aggiornare lo stato del sistema e registra dettagli sui tempi di attesa e servizio,
+offrendo un esempio pratico di come le catene di Markov possano essere applicate a scenari reali di simulazione.

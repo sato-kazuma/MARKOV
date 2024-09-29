@@ -1,0 +1,87 @@
+ID CHAIN: bXXuMsvRY9Bt4ebsppAx
+STEP NUMERO: 1/2
+*---------------------------------------------------------------------------------------------------------------*
+La matrice ottenuta dalla prima interazione è:
+[1.0] 
+*---------------------------------------------------------------------------------------------------------------*
+
+
+Numero di clienti da servire in questo passo: 2
+*---------------------------------------------------------------------------------------------------------------*
+Inizio invio GET request a: http://localhost:8080/Richiesta cliente 1
+*---------------------------------------------------------------------------------------------------------------*
+Request Headers:
+Cache-Control: [no-store]
+Upgrade-Insecure-Requests: [1]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36]
+Accept-Encoding: [br]
+Content-Type: [image/jpeg]
+*---------------------------------------------------------------------------------------------------------------*
+Response Code: -1
+GET request completata.
+*---------------------------------------------------------------------------------------------------------------*
+Tempo di attesa del cliente: 3602 ms
+Tempo di servizio del server per il cliente: 575 ms
+Io ero il cliente numero: 1
+La mia richiesta è stata eseguita, passo al prossimo cliente
+_____________________________________________________________________________________________________
+*---------------------------------------------------------------------------------------------------------------*
+Inizio invio GET request a: http://localhost:8080/Richiesta cliente 2
+*---------------------------------------------------------------------------------------------------------------*
+Request Headers:
+Cache-Control: [private]
+Accept: [eseguibili.text/html]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edg/91.0.864.48]
+Accept-Encoding: [gzip, deflate]
+Content-Type: [application/xml; charset=UTF-8]
+*---------------------------------------------------------------------------------------------------------------*
+Response Code: -1
+GET request completata.
+*---------------------------------------------------------------------------------------------------------------*
+Tempo di attesa del cliente: 4432 ms
+Tempo di servizio del server per il cliente: 827 ms
+Io ero il cliente numero: 2
+La mia richiesta è stata eseguita, passo al prossimo cliente
+_____________________________________________________________________________________________________
+Aggiornamento dello stato della matrice...
+Path: 0 
+Stato della matrice aggiornato.
+
+STEP NUMERO: 2/2
+*---------------------------------------------------------------------------------------------------------------*
+La matrice ottenuta dalla prima interazione è:
+[0.5167413535850875] [0.4832586464149125] 
+[0.0844731995894161] [0.9155268004105839] 
+*---------------------------------------------------------------------------------------------------------------*
+
+
+Numero di clienti da servire in questo passo: 1
+*---------------------------------------------------------------------------------------------------------------*
+Inizio invio GET request a: http://localhost:8080/Richiesta cliente 1
+*---------------------------------------------------------------------------------------------------------------*
+Request Headers:
+Cache-Control: [private]
+Accept: [application/json]
+User-Agent: [Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0]
+Accept-Encoding: [gzip, deflate]
+Content-Type: [multipart/form-data]
+*---------------------------------------------------------------------------------------------------------------*
+Response Code: -1
+GET request completata.
+*---------------------------------------------------------------------------------------------------------------*
+Tempo di attesa del cliente: 8306 ms
+Tempo di servizio del server per il cliente: 855 ms
+Io ero il cliente numero: 1
+La mia richiesta è stata eseguita, passo al prossimo cliente
+_____________________________________________________________________________________________________
+Aggiornamento dello stato della matrice...
+Path: 1 1 
+Stato della matrice aggiornato.
+
+*---------------------------------------------------------------------------------------------------------------*
+Procedo ad analizzare i dati presi dalla Lista delle persone!
+*---------------------------------------------------------------------------------------------------------------*
+Tempo di attesa medio: 0.0 ms
+Tempo di servizio medio: 0.0 ms
+Sono stati serviti: 0 clienti
+*---------------------------------------------------------------------------------------------------------------*

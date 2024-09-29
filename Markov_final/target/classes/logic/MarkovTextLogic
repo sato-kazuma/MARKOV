@@ -1,0 +1,76 @@
+/***************************************************************************************************************/
+@AUTHOR: FRANCESCO LASALVIA
+/***************************************************************************************************************/
+
+Ecco una descrizione dettagliata del modello di catena di Markov applicato alla generazione del testo nel codice fornito.
+
+---
+
+### Relazione con le Catene di Markov
+
+Il codice presentato utilizza il concetto di catene di Markov per generare testo basato su un corpus di parole.
+Le catene di Markov sono un tipo di modello stocastico in cui la probabilità di transizione da uno stato all'altro dipende
+ solo dallo stato corrente, non dalla sequenza di stati precedenti.
+Questo concetto è essenziale per la generazione di testo automatica, dove ogni parola o sequenza di parole è generata basandosi solo sul contesto immediato.
+
+#### **Concetti Fondamentali delle Catene di Markov nel Modello di Testo**
+
+1. **Stati e Transizioni**
+   - **Stati**: In questo contesto, gli stati sono sequenze di parole. Ogni stato è rappresentato da una chiave nel dizionario Markov,
+   che è una lista di parole di dimensione `keySize`.
+   - **Transizioni**: Le transizioni sono le probabilità che una determinata sequenza di parole (stato) sia seguita da una parola successiva.
+   Queste probabilità sono stimate osservando la frequenza con cui ogni parola segue una determinata sequenza di parole nel testo di input.
+
+2. **Proprietà di Markov**
+   - **Memoria senza memoria (Markovianità)**: La probabilità di una parola successiva in una sequenza dipende solo dalle `keySize` parole precedenti, e non dalla sequenza di parole più lontane. Questo è il principio Markoviano applicato alla generazione del testo.
+
+#### **Implementazione delle Catene di Markov nel Codice**
+
+1. **Definizione degli Stati e delle Probabilità di Transizione**
+
+   Il codice costruisce un modello di Markov utilizzando un dizionario (`Map<List<String>, List<String>>`), dove:
+   - **Chiavi**: Sequenze di parole di lunghezza `keySize`.
+   - **Valori**: Parole che seguono ciascuna sequenza di parole (stato).
+
+   La probabilità di transizione è rappresentata dalla frequenza con cui ogni parola segue una determinata sequenza nel testo.
+   Ad esempio, se la sequenza "il gatto" è seguita frequentemente dalla parola "dorme", allora "dorme" avrà una probabilità più alta di seguire
+    "il gatto" nella generazione del testo.
+
+2. **Costruzione del Dizionario di Markov**
+
+   - **`buildMarkovDict`**: Questo metodo costruisce il dizionario delle transizioni analizzando il testo di input.
+   Per ogni sequenza di parole di lunghezza `keySize`, si memorizza la parola successiva. Se la chiave (sequenza) non esiste ancora nel dizionario,
+   viene creata e inizializzata con una nuova lista di parole.
+
+   **Esempio**:
+   Supponiamo di avere la frase "il gatto dorme sul tappeto". Con `keySize = 2`, il dizionario potrebbe essere:
+   - Chiave: `[il, gatto]` -> Valori: `[dorme]`
+   - Chiave: `[gatto, dorme]` -> Valori: `[sul]`
+   - Chiave: `[dorme, sul]` -> Valori: `[tappeto]`
+
+3. **Generazione del Testo**
+
+   - **`generateInitialOutput`**: Seleziona casualmente una sequenza iniziale di parole di lunghezza `keySize` come punto di partenza per la generazione del testo.
+   - **`generateText`**: Usa il dizionario di Markov per generare il testo. A partire dalla sequenza iniziale,
+   il testo viene costruito aggiungendo parole basate sulle transizioni definite nel dizionario.
+   Il testo viene generato fino a raggiungere la dimensione richiesta (`outputSize`).
+
+   **Esempio di Generazione**:
+   Con un `keySize` di 2 e un `outputSize` di 10, se partiamo con la sequenza `[il, gatto]`, ecco come potrebbe procedere la generazione:
+   - Sequenza iniziale: `[il, gatto]`
+   - Parola successiva: `dorme` (da `[il, gatto]`)
+   - Nuova sequenza: `[gatto, dorme]`
+   - Parola successiva: `sul` (da `[gatto, dorme]`)
+   - E così via fino a generare il testo desiderato.
+
+4. **Gestione della Generazione**
+
+   - **`handleEndOfSentence`**: Assicura che il testo generato termini con una frase completa, aggiungendo un punto finale se necessario e
+   rimuovendo parole in eccesso per un migliore risultato.
+
+#### **Conclusioni**
+
+Le catene di Markov forniscono un modello semplice ma potente per la generazione di testo.
+Utilizzando un dizionario di transizioni basato sulla frequenza delle sequenze di parole nel testo di input, è possibile generare testo che imita
+ lo stile e il contenuto del testo originale. Questo approccio consente di creare nuove sequenze di testo che sono coerenti con il modello linguistico appreso dal corpus,
+ producendo risultati interessanti e realistici nella generazione automatica di testi.

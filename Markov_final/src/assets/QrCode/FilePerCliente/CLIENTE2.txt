@@ -1,0 +1,17 @@
+*---------------------------------------------------------------------------------------------------------------*
+Inizio invio GET request a: http://localhost:8080/Richiesta cliente 2
+*---------------------------------------------------------------------------------------------------------------*
+Request Headers:
+Cache-Control: [private]
+Accept: [eseguibili.text/html]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edg/91.0.864.48]
+Accept-Encoding: [gzip, deflate]
+Content-Type: [application/xml; charset=UTF-8]
+*---------------------------------------------------------------------------------------------------------------*
+Response Code: -1
+GET request completata.
+*---------------------------------------------------------------------------------------------------------------*
+Tempo di attesa del cliente: 4432 ms
+Tempo di servizio del server per il cliente: 827 ms
+Io ero il cliente numero: 2
+La mia richiesta è stata eseguita, passo al prossimo cliente

@@ -1,0 +1,10 @@
+/api/users
+/api/products
+/api/orders
+/api/cart
+/api/search?q=keyword
+/api/login
+/api/logout
+/api/profile
+/api/comments
+/api/notifications
