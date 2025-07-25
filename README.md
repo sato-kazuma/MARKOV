@@ -1,7 +1,7 @@
 # MARKOV
-La mia tesi :)
+Tesi proposta per la chiusura della laurea triennale in ingegneria Informatica.
+Il progetto si basa sulle catene di Markov e sulla loro implementazioni nele casistiche sotto elencate:
 
-Progettino per catene di Markov basato sulle seguenti casistiche:
   1)  Generazione di un testo basato su un testo di input.
        a) creazione del dizionario basato sul testo di input;
        b) assegnazione delle probabilità su ogni parola del dizionario;
@@ -22,5 +22,4 @@ Progettino per catene di Markov basato sulle seguenti casistiche:
        e) Si procede alla stampa di relative get, post, put, delete e risposte del server e si genera un tempo di servizio e di risposta.( per ogni cliente );
        f) Si procede all'analisi di tutti i dati, alla generazione di un qr, alla compressione in un file zip e al caricamento dei dati su google drive.
 
-      Spero di essere stato chiaro, un kiss. a tutti coloro che ci guarderanno.
-In eseguibili, se li avviate da windows, parte il programma :3 
+In eseguibili, ci sono dei programmi .exe che se avviati dovrebbero permettere l'esecuzione del codice. Richiesto Java e WinRar.
