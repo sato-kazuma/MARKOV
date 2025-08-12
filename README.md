@@ -1,25 +1,34 @@
-# MARKOV
-Tesi proposta per la chiusura della laurea triennale in ingegneria Informatica.
-Il progetto si basa sulle catene di Markov e sulla loro implementazioni nele casistiche sotto elencate:
+MARKOV
+Bachelor’s Thesis Proposal — Computer Engineering
+This thesis project focuses on the study and implementation of Markov chains in various practical scenarios, exploring their potential applications through simulation and algorithmic modeling. 
+The work is structured into three main case studies:
+*************************************************************************************************************************************************************************************************
+1-Text Generation from an Input Corpus
 
-  1)  Generazione di un testo basato su un testo di input.
-       a) creazione del dizionario basato sul testo di input;
-       b) assegnazione delle probabilità su ogni parola del dizionario;
-       c) scelta di ogni parola generata basata su quelel probabilità.
-       OSSERVAZIONE: Dimensione del testo di output scelta dall'utente, basato su una KEY che decide la dimensione delle catene di parole usate per generare il testo         di output.
-  3)  Simulazione degli stati di una catena di Markov con l'andamento del covid su una popolazione fittizia.
-       a) vengono stabilite le propabilità di transizione di stato -> sano, infetto, guarito e deceduto;
-       b) vengono decisi, dall'utente, dimensione della popolazione e durata del periodo di simulazione.
-       c) Si procede alla stampa giorno per giorno;
-       OSSERVAZIONE: Il calcolo è prettamente matematico, studiato in modo che le somme dei numeri della popolazione, per ogni stato, sia sempre uguale
-       al numero della popolazione totale.
-  3)  Simulazione degli stati di una catena di Markov su una simulazione di richieste da parte di client ad un server.
-       a) Vengono generati numero di STEP e NUMERO MAX di clienti;
-       b) Per ogni STEP, il numero di clienti cambia, seguendo la logica di transizione degli stati delle catene di Markov;
-       d) Per ogni STEP, viene generata e stampata una matrice di transizione degli stati, che stabilisce come debba avvenire la transizione( si sceglie la
-          probabilità piu alta della riga corripsondente al current state. Questa probabilità sancisce la colonna, che contiene l'indice che rispecchierà il nuovo
-          numero di clienti;
-       e) Si procede alla stampa di relative get, post, put, delete e risposte del server e si genera un tempo di servizio e di risposta.( per ogni cliente );
-       f) Si procede all'analisi di tutti i dati, alla generazione di un qr, alla compressione in un file zip e al caricamento dei dati su google drive.
+The system takes an input text and:
+-Builds a dictionary from the corpus;
+-Assigns transition probabilities to each word in the dictionary;
+-Generates a new text by selecting each word according to these probabilities.
 
-In eseguibili, ci sono dei programmi .exe che se avviati dovrebbero permettere l'esecuzione del codice. Richiesto Java e WinRar.
+The output text length is determined by the user and depends on a configurable KEY, which defines the size of the word chains used in the generation process.
+*************************************************************************************************************************************************************************************************
+2-Epidemic Progression Simulation (COVID-19 Case Study)
+
+This simulation models the spread of COVID-19 within a fictional population:
+-Transition probabilities are defined for the states: healthy, infected, recovered, and deceased;
+-The user specifies the population size and simulation duration;
+
+The simulation outputs daily population statistics.
+The underlying computation ensures that, at every step, the sum of individuals across all states matches the total population, maintaining mathematical consistency.
+*************************************************************************************************************************************************************************************************
+3- Server-Request Simulation Using Markov Chains
+
+This scenario simulates client requests to a server, where the number of clients evolves according to a Markov chain:
+
+-The number of STEPS and the MAXIMUM NUMBER of clients are defined;
+-At each step, the number of clients changes based on the current state and a transition matrix;
+-The transition matrix for each step determines the next client count by selecting the state with the highest transition probability;
+-The system logs simulated GET, POST, PUT, and DELETE requests, along with server responses, service times, and response times for each client;
+-The collected data is analyzed, encoded in a QR code, compressed into a ZIP file, and uploaded to Google Drive.
+*************************************************************************************************************************************************************************************************
+Executable Files: The provided .exe programs allow execution of the code, requiring Java and WinRAR to run.
