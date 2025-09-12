@@ -1,5 +1,6 @@
 MARKOV
 Bachelor’s Thesis Proposal — Computer Engineering
+
 This thesis project focuses on the study and implementation of Markov chains in various practical scenarios, exploring their potential applications through simulation and algorithmic modeling. 
 The work is structured into three main case studies:
 *************************************************************************************************************************************************************************************************
